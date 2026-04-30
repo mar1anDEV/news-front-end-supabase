@@ -44,7 +44,7 @@ function latestNewsBannerUI() {
 
 
                                                                 <div className="posted-at-time">
-                                                                    <div className="date inline-block mr-4">
+                                                                    <div className="date hidden mr-4">
                                                                         <FontAwesomeIcon icon={faCalendar} className="text-gray-300 text-sm mr-1 inline-block" />
                                                                         <span className="text-gray-300 text-md font-medium inline-block"><article>{articleLatest.pubDate}</article></span>
                                                                     </div>

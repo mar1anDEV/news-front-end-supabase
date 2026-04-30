@@ -2,7 +2,7 @@
 import Banner from "../components/layout/Banner"
 import Layout from "../components/layout/Layout"
 import SidebarLayout from "../components/layout/SidebarLayout"
-
+import AdsRowHomepage from "../components/ui/AdsRowHomepage"
 
 
 function Homepage() {
@@ -12,7 +12,8 @@ function Homepage() {
       <section className="w-full mb-6">
         <Banner /> 
       </section>
-      <SidebarLayout />
+      <SidebarLayout/>
+      <AdsRowHomepage/>
     </Layout>
   )
 }
