@@ -1,0 +1,92 @@
+@import "swiper/css/pagination";
+@import "swiper/css";
+@import "swiper/css/navigation";
+
+body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+:root {
+    --primary-color: #1E3A8A;
+    --secondary-color: #3B82F6;
+    --accent-color: #2563EB;
+    --background-color: #F3F4F6;
+    --text-color: #111827;
+}
+
+@custom-media --nav-820 (min-width: 889px);
+
+
+
+
+.latest-news ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.latest-news ul::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+
+
+
+.nav-820 {
+  display: none;
+}
+
+@media (min-width: 889px) {
+  .nav-820 {
+    display: flex !important;
+  }
+}
+
+
+@media (min-width: 889px) {
+  .hamburger-container {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+.swiper-pagination-bullet {
+  width: 18px !important;
+  height: 5px !important;
+  margin: 0 6px !important;
+  background: rgba(255, 255, 255, 0.65) !important;
+  transition: all 0.3s ease !important;
+  border-radius: 3px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #1e40af !important;
+  transform: scale(1.2) !important;
+}
+
+.swiper-pagination-bullet:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  transform: scale(1.1) !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+  opacity: 0.75 !important;
+  transition: opacity 0.3s ease !important;
+  height: 40px !important;
+  width: 40px !important;
+}
+.swiper-button-disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+}
