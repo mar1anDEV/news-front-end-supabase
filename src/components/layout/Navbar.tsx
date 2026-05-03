@@ -76,8 +76,8 @@ function Navbar() {
         <div className="navbar-lower p-6 md:p-4 xl:rounded-b-lg bg-blue-900 shadow-md ">
                 <ul className="nav-links hidden nav-820 flex-row items-center gap-4 font-semibold border-white/40">
                     {navigationData.map((link) => (
-                        <li key={link.name} className={`nav-link cursor-pointer transition duration-300 ${location.pathname === link.path ? 'active text-blue-900 px-2 py-1  bg-white rounded' : 'text-white px-2 py-1 hover:bg-white hover:text-blue-900 rounded'}`}>
-                            <Link to={link.path} aria-current={location.pathname === link.path ? 'page' : undefined}>
+                        <li key={link.name} >
+                            <Link to={link.path} aria-current={location.pathname === link.path ? 'page' : undefined} className={`nav-link cursor-pointer transition duration-300 ${location.pathname === link.path ? 'active text-blue-900 px-3 py-[0.45rem]  bg-white rounded' : 'text-white px-3 py-[0.45rem]  hover:bg-white hover:text-blue-900 rounded'}`} >
                                 {link.name}
                             </Link>
                         </li>

@@ -4,7 +4,7 @@ import Layout from "../components/layout/Layout"
 function NotFound() {
   return (
     <Layout>
-      <section className="h-screen">
+      <section className="h-120">
      
       <div className="container mx-auto flex flex-col items-center space-y-4">
         <h1 className="text-6xl text-blue-900 font-extrabold text-center mt-20">404 - Сторінку не знайдено</h1>
