@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import Carousel from "./Carousel";
 import { SwiperSlide } from "swiper/react";
 import { Link } from "react-router";
-import { fakeArticles } from "../../data/fakeData";
+//import { fakeArticles } from "../../data/fakeData";
 interface Article {
   title: string;
   description: string;
@@ -18,7 +18,7 @@ function Banner() {
     queryKey: ["news"],
     queryFn: async () => {
       const response = await fetch(
-        `https://newsdata.io/api/1/latest?apikey=${NEWS_API_KE}&country=ua&language=uk&image=1&category=top`
+        `https://newsdata.io/api/1/latest?apikey=${NEWS_API_KEY}&country=ua&language=uk&image=1&category=top`
       );
       if (!response.ok) throw new Error("Network response was not ok");
       return response.json();
@@ -37,7 +37,7 @@ function Banner() {
       <div className="aspect-square md:aspect-video xl:container xl:aspect-21/9 xl:rounded xl:mx-auto relative">
         <div className="absolute inset-0">
          <Carousel>
-        {fakeArticles?.map((article, index) => (
+        {cleanData?.map((article, index) => (
           <SwiperSlide key={index}>
             <div className="bg-amber-400 w-full h-full relative">
               <img src={article.image_url} className="w-full h-full object-cover object-center bg-no-repeat" alt={article.title} />
