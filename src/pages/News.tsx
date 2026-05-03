@@ -1,7 +1,7 @@
 import { Link } from "react-router"
 import Layout from "../components/layout/Layout"
-import { useState,useEffect } from "react"
-import { useLocation } from "react-router"
+import { useState} from "react"
+//import { useLocation } from "react-router"
 import {fakeArticles} from "../data/fakeData"
 import { formatDate } from "../utils/formateDate"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -25,25 +25,13 @@ function News() {
 
 const [isPillActive, setPillActive] = useState(newsCategories[0].value)
 
-const [isArticlenView, seArticleinView] = useState(false)
-const [page, setPage] = useState(1)
+//const [page, setPage] = useState(1)
 
 
-const handlePageChange = (event,value)=>{
-        setPage(value)
-    }
+//const handlePageChange = (event,value)=>{
+        //setPage(value)
+    //}
 
-const location = useLocation().pathname
-
-
-      useEffect(() => {
-        if(location === '/news'){
-          seArticleinView(true)
-        }
-        else return null
-      },[location])
-
-  
   
 
  
@@ -69,7 +57,7 @@ const location = useLocation().pathname
                 <nav className="cards">
                   <ul className="flex flex-col md:grid grid-cols-2 xl:grid-cols-1 gap-2">
                     {fakeArticles.map((article)=> (
-                      <li key={article.article_id} className={`hidden shadow xl:block transition duration-300 bg-white w-[98%] rounded mx-auto py-4 px-4 ${isArticlenView ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`}>
+                      <li key={article.article_id} className={`hidden shadow xl:block transition duration-300 bg-white w-[98%] rounded mx-auto py-4 px-4 `}>
                         <Link to={article.link} target="_blank">
                         <div className="article">
                           <div className="flex flex-row">
@@ -135,7 +123,7 @@ const location = useLocation().pathname
         <div className="pagination p-4 my-2">
               <div className="w-fit mx-auto my-2">
                 <Stack spacing={2}>
-                  <Pagination count={10} variant="outlined" shape="rounded" onChange={handlePageChange} />
+                  <Pagination count={10} variant="outlined" shape="rounded" />
                 </Stack>
               </div>
         </div>
