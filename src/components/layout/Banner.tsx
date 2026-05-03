@@ -1,35 +1,35 @@
-import { NEWS_API_KEY} from "../../../config/config";
-import { useQuery } from "@tanstack/react-query";
+//import { NEWS_API_KEY} from "../../../config/config";
+//import { useQuery } from "@tanstack/react-query";
 import Carousel from "./Carousel";
 import { SwiperSlide } from "swiper/react";
 import { Link } from "react-router";
-//import { fakeArticles } from "../../data/fakeData";
-interface Article {
-  title: string;
-  description: string;
-  image_url: string;
-  link: string;
-  pubDate: string;
-  source_name: string;
-}
+import { fakeArticles } from "../../data/fakeData";
+//interface Article {
+  //title: string;
+  //description: string;
+  //image_url: string;
+  //link: string;
+  //pubDate: string;
+  //source_name: string;
+//}
 
 function Banner() {
-  const {data} = useQuery({
-    queryKey: ["news"],
-    queryFn: async () => {
-      const response = await fetch(
-        `https://newsdata.io/api/1/latest?apikey=${NEWS_API_KEY}&country=ua&language=uk&image=1&category=top`
-      );
-      if (!response.ok) throw new Error("Network response was not ok");
-      return response.json();
-    },
-    staleTime: 1000 * 60 * 60,
-  });
+  //const {data} = useQuery({
+    //queryKey: ["news"],
+    //queryFn: async () => {
+     // const response = await fetch(
+      //  `https://newsdata.io/api/1/latest?apikey=${NEWS_API_KEY}&country=ua&language=uk&image=1&category=top`
+      //);
+      //if (!response.ok) throw new Error("Network response was not ok");
+      //return response.json();
+    //},
+    //staleTime: 1000 * 60 * 60,
+  //});
   
 
-    const cleanData: Article[] = data?.results?.filter(
-  (article: Article) => article.image_url && article.title && article.description
-) || [];
+    //const cleanData: Article[] = data?.results?.filter(
+  //(article: Article) => article.image_url && article.title && article.description
+//) || [];
 
 
   return (
@@ -37,7 +37,7 @@ function Banner() {
       <div className="aspect-square md:aspect-video xl:container xl:aspect-21/9 xl:rounded xl:mx-auto relative">
         <div className="absolute inset-0">
          <Carousel>
-        {cleanData?.map((article, index) => (
+        {fakeArticles.map((article, index) => (
           <SwiperSlide key={index}>
             <div className="bg-amber-400 w-full h-full relative">
               <img src={article.image_url} className="w-full h-full object-cover object-center bg-no-repeat" alt={article.title} />
