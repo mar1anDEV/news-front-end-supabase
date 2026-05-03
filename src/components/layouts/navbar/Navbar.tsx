@@ -1,9 +1,9 @@
 import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { navigationData } from "../../constants/navigationData";
+import { navigationData } from "../../../constants/navigationData";
 import { useLocation } from "react-router";
 import { useState,useEffect} from "react";
-import Hamburger from "../ui/Hamburger";
+import Hamburger from "../../ui/buttons/Hamburger";
 import { Link } from "react-router";
 function Navbar() {
     const location = useLocation();

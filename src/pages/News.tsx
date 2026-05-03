@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import Layout from "../components/layout/Layout"
+import Layout from "../components/layouts/containerLayouts/Layout"
 import { useState} from "react"
 //import { useLocation } from "react-router"
 import {fakeArticles} from "../data/fakeData"

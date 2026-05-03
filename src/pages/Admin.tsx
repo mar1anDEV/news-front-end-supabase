@@ -1,4 +1,4 @@
-import AdminForm from '../components/layout/AdminForm'
+import AdminForm from '../components/layouts/adminLayout/AdminForm'
 
 function Admin() {
   return (

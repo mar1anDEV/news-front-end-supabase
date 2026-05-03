@@ -1,6 +1,6 @@
 
-import LatestNewsBannerUI from "../ui/LatestNewsBannerUI";
-import ClassifiedsBannerUI from "../ui/ClassifiedsBannerUI";
+import LatestNewsBannerUI from "../../ui/LatestNewsBannerUI";
+import ClassifiedsBannerUI from "../../ui/ClassifiedsBannerUI";
 
 function SidebarLayout() {
 

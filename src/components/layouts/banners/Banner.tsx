@@ -1,9 +1,9 @@
 //import { NEWS_API_KEY} from "../../../config/config";
 //import { useQuery } from "@tanstack/react-query";
-import Carousel from "./Carousel";
+import Carousel from "../carousel/Carousel";
 import { SwiperSlide } from "swiper/react";
 import { Link } from "react-router";
-import { fakeArticles } from "../../data/fakeData";
+import { fakeArticles } from "../../../data/fakeData";
 //interface Article {
   //title: string;
   //description: string;
