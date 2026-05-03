@@ -31,9 +31,6 @@ function Banner() {
   (article: Article) => article.image_url && article.title && article.description
 ) || [];
 
-    console.log(data);
-
-    console.log(cleanData);
 
   return (
     <section className="banner">

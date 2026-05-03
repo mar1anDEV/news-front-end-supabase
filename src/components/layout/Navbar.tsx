@@ -2,7 +2,6 @@ import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { navigationData } from "../../constants/navigationData";
 import { useLocation } from "react-router";
-
 import { useState,useEffect} from "react";
 import Hamburger from "../ui/Hamburger";
 import { Link } from "react-router";
@@ -13,6 +12,9 @@ function Navbar() {
 
 
     useEffect(() => {
+
+    window.scrollTo(0,0)
+    
     const handleEscape = (event: KeyboardEvent) => {
       if (isOpen && event.key === 'Escape') {
         setIsOpen(false);
@@ -43,9 +45,19 @@ function Navbar() {
     setIsOpen(!isOpen);
   }
 
+  useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 889) {
+      setIsOpen(false)
+    }
+  }
+
+  window.addEventListener('resize', handleResize)
+  return () => window.removeEventListener('resize', handleResize)
+}, [])
     
   return (
-   <nav className='navbar '>
+   <nav className='navbar relative'>
      <div className="xl:container xl:mx-auto">
          <div className="navbar-container grid gap-2 pt-2 md:pt-0 md:py-2 w-full relative">
             <div className="navbar-row-upper flex flex-row justify-between items-center pt-2">
@@ -61,7 +73,7 @@ function Navbar() {
                     <li><Link to="/" className="text-gray-600 hover:text-gray-700" aria-label="Instagram"><FontAwesomeIcon icon={faInstagram} /></Link></li>
                 </ul>
             </div>
-        <div className="navbar-lower p-6 md:p-4 xl:rounded-b-lg  bg-blue-900">
+        <div className="navbar-lower p-6 md:p-4 xl:rounded-b-lg bg-blue-900 shadow-md ">
                 <ul className="nav-links hidden nav-820 flex-row items-center gap-4 font-semibold border-white/40">
                     {navigationData.map((link) => (
                         <li key={link.name} className={`nav-link cursor-pointer transition duration-300 ${location.pathname === link.path ? 'active text-blue-900 px-2 py-1  bg-white rounded' : 'text-white px-2 py-1 hover:bg-white hover:text-blue-900 rounded'}`}>
@@ -76,14 +88,17 @@ function Navbar() {
                 </div>
             </div>
          </div>
-         <div aria-hidden={!isOpen} className={`fixed inset-0 h-screen z-50 transition-opacity duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-                <div className="flex flex-col h-screen w-full">
-                    <div className="h-31"></div>
-                        <div onClick={handleMenuNavigation} className="mobile-nav-wrapper border-t border-white/40 grow bg-black/40">
-                            <div className="h-full w-full relative">
-                                <div className="absolute inset-0">
-                                    <nav aria-label="Mobile navigation" className={`wrapper w-3/4 relative bg-blue-900 h-full -translate-x-full ${isOpen ? 'translate-x-0 transition-transform duration-300' : ''}`} id="nav-mobile">
-                                        <ul className="flex-col gap-2 py-2 overflow-y-scroll absolute inset-0">
+        </div>
+        <div className={`block! lg:hidden! ${isOpen ? 'block z-20 absolute inset-0 h-dvh opacity-100 pointer-events-auto': ' pointer-events-none opacity-0'}`}>
+            <div className="flex flex-col h-full">
+                {isOpen &&(
+                     <div className="h-37 md:h-31 border-b border-white"></div>
+                )}
+                <div className="flex-1 h-full relative">
+                    <div  className="absolute inset-0 bg-black/50"></div>
+                    <div onClick={handleMenuNavigation} className="absolute inset-0 z-50">
+                        <div className={`h-full bg-blue-900 w-4/6 transition-all duration-300  ${isOpen ? 'translate-x-0':'-translate-x-full'}`}>
+                            <ul className="flex-col gap-2 py-2 overflow-y-scroll absolute inset-0">
                                         {navigationData.map((link) => (
                                             <li key={link.name} className="border-b py-3 border-white/40">
                                                 <Link to={link.path} className="text-white font-bold text-lg ml-2" onClick={handleMenuNavigation}>
@@ -92,15 +107,21 @@ function Navbar() {
                                             </li>
                                         ))}
                                     </ul>
-                                    </nav>
-                                </div>
-                            </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
      </nav>
+     
+    
+     
   )
 }
 
 export default Navbar
+
+
+
+
+
