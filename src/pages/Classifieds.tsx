@@ -14,6 +14,8 @@ function Classifieds() {
 
   const [isItemActive, setItemActive] = React.useState(fakeClassifiedsDataListing[0].id)
 
+  console.log(isItemActive)
+
   return (
     <Layout>
      
@@ -35,7 +37,7 @@ function Classifieds() {
 
                 <SearchFilter/>
 
-                <CategoryListingUI listing={fakeClassifiedsDataListing} title="Category"/>
+                <CategoryListingUI activeItem={isItemActive} onItemClick={setItemActive} listing={fakeClassifiedsDataListing} title="Category"/>
 
 
                 </FiltersSidebar>
