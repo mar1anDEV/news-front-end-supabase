@@ -73,8 +73,8 @@ function Navbar() {
                     <li><Link to="/" className="text-gray-600 hover:text-gray-700" aria-label="Instagram"><FontAwesomeIcon icon={faInstagram} /></Link></li>
                 </ul>
             </div>
-        <div className="navbar-lower p-6 md:p-4 xl:rounded-b-lg bg-blue-900 shadow-md ">
-                <ul className="nav-links hidden nav-820 flex-row items-center gap-4 font-semibold border-white/40">
+        <div className="navbar-lower p-6 md:py-4 px-0 md:px-2 xl:rounded-b-lg bg-blue-900 shadow-md ">
+                <ul className="nav-links hidden nav-820 flex-row items-center xl:gap-2 font-semibold border-white/40">
                     {navigationData.map((link) => (
                         <li key={link.name} >
                             <Link to={link.path} aria-current={location.pathname === link.path ? 'page' : undefined} className={`nav-link cursor-pointer transition duration-300 ${location.pathname === link.path ? 'active text-blue-900 px-3 py-[0.45rem]  bg-white rounded' : 'text-white px-3 py-[0.45rem]  hover:bg-white hover:text-blue-900 rounded'}`} >

@@ -1,7 +1,7 @@
 import Navbar from "../navbar/Navbar"
 import Footer from "../footer/Footer"
 
-function Layout({ children}: { children: React.ReactNode}) {
+function PageContainer({ children}: { children: React.ReactNode}) {
   return (
     <>
       
@@ -15,4 +15,4 @@ function Layout({ children}: { children: React.ReactNode}) {
   )
 }
 
-export default Layout
+export default PageContainer
