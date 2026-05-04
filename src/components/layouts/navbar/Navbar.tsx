@@ -83,7 +83,7 @@ function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <div aria-label={isOpen ? 'Close menu' : 'Open menu'} className="hamburger-container w-fit ml-auto z-60 relative">
+                <div aria-label={isOpen ? 'Close menu' : 'Open menu'} className="hamburger-container w-fit ml-auto mr-4 z-60 relative">
                     <Hamburger isChecked={isOpen} ariaExpanded={isOpen} ariaControls="nav-mobile" onClick={()=> handleMenuNavigation()} />
                 </div>
             </div>

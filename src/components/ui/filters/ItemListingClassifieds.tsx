@@ -7,7 +7,7 @@ interface Props{
     idItem?:string,
     icon?: IconDefinition,
     itemName?: string,
-    isActive : string,
+    isActive?: string,
     onClick: ()=> void
 }
 
@@ -16,7 +16,7 @@ function ItemListingClassifieds({icon,itemName,idItem,isActive, onClick}:Props) 
     
 //console.log(typeof(isActive))
 
-console.log(typeof(idItem))
+
 
   return (
     <div className="item cursor-pointer" id={`${idItem}`}>

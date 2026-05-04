@@ -1,3 +1,4 @@
+
 import React from "react"
 import CategoryListingUI from "../components/ui/filters/CategoryListingUI"
 import Layout from "../components/layouts/containerLayouts/Layout"
@@ -9,6 +10,12 @@ import ListingsToolbar from "../components/ui/filters/ListingToolBar"
 import FilterSideBarHeader from "../components/ui/filters/FilterSideBarHeader"
 import SearchFilter from "../components/ui/filters/searchUI/SearchFilter"
 import { fakeClassifiedsDataListing } from "../data/fakeClassifiedsDataListing"
+import PriceRangeFilter from "../components/ui/PriceRangeFilter"
+import FilterLocation from "../components/ui/filters/FilterLocation"
+import { fakeCities } from "../data/fakeDataLocations"
+import ConditionFilter from "../components/ui/filters/ConditionFilter"
+import { fakeDataCondtition } from "../data/fakeDataCondition"
+import BtnClassifieds from "../components/ui/buttons/BtnClassifieds"
 function Classifieds() {
 
 
@@ -37,8 +44,16 @@ function Classifieds() {
 
                 <SearchFilter/>
 
-                <CategoryListingUI activeItem={isItemActive} onItemClick={setItemActive} listing={fakeClassifiedsDataListing} title="Category"/>
+                <CategoryListingUI onItemClick={setItemActive} listing={fakeClassifiedsDataListing} title="Category"/>
 
+                <PriceRangeFilter range={100} title="Price Range"/>
+
+                <FilterLocation defaultOptionCity="All locations" location={fakeCities} title="Location"/>
+                <ConditionFilter conditions={fakeDataCondtition} title="Condition"/>
+
+                <div className="mt-4 mx-2">
+                  <BtnClassifieds classCustom="w-full" actionLabel="Apply Filters"/>
+                </div>
 
                 </FiltersSidebar>
                 
@@ -62,3 +77,5 @@ function Classifieds() {
 }
 
 export default Classifieds
+
+  
