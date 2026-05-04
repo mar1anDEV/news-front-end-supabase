@@ -8,7 +8,7 @@ interface Props {
 
 function ListingPageLayout({
           children,
-          className = 'xl:container xl:mx-auto h-screen w-full',
+          className = 'xl:container xl:mx-auto min-h-screen w-full',
           containerName = ''
         }: Props) {
           return (
