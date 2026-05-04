@@ -2,7 +2,7 @@ import React from 'react'
 
 function FiltersSidebar() {
   return (
-    <aside>FiltersSidebar</aside>
+    <aside className='rounded border border-gray-300 p-2'>FiltersSidebar</aside>
   )
 }
 

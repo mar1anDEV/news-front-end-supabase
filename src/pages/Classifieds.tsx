@@ -3,7 +3,8 @@ import Layout from "../components/layouts/containerLayouts/Layout"
 import ListingPageLayout from "../components/layouts/containerLayouts/ListingPageLayout"
 import FiltersSidebar from "../components/layouts/sidebars/filters/FiltersSidebar"
 import PageHeader from "../components/layouts/header/Header"
-
+import ListingPanel from "../components/layouts/panels/ListingPanel"
+import ListingsToolbar from "../components/ui/ListingToolBar"
 function Classifieds() {
   return (
     <Layout>
@@ -20,11 +21,12 @@ function Classifieds() {
               path="/post"
               />
               
-            <div className="grid gap-6 mt-4 grid-cols-1 md:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[260px_minmax(0,1fr)_280px]">
-                <FiltersSidebar
-                
-                
-                />
+            <div className="mx-4 mb-4 grid gap-6 mt-4 grid-cols-1 md:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[260px_minmax(0,1fr)_280px] h-full">
+                <FiltersSidebar/>
+                <ListingPanel>
+                  <ListingsToolbar/>
+                </ListingPanel>
+                <FiltersSidebar/>
             </div>
 
 
