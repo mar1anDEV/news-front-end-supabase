@@ -1,3 +1,4 @@
+import React from "react"
 import CategoryListingUI from "../components/ui/filters/CategoryListingUI"
 import Layout from "../components/layouts/containerLayouts/Layout"
 import ListingPageLayout from "../components/layouts/containerLayouts/ListingPageLayout"
@@ -9,6 +10,10 @@ import FilterSideBarHeader from "../components/ui/filters/FilterSideBarHeader"
 import SearchFilter from "../components/ui/filters/searchUI/SearchFilter"
 import { fakeClassifiedsDataListing } from "../data/fakeClassifiedsDataListing"
 function Classifieds() {
+
+
+  const [isItemActive, setItemActive] = React.useState(fakeClassifiedsDataListing[0].id)
+
   return (
     <Layout>
      

@@ -5,7 +5,7 @@ import type { IconDefinition } from '@fortawesome/free-brands-svg-icons'
 interface Props{
     title? : string,
     listing? : {
-      id?: number,
+      id?: string,
       name?: string,
       icon?: IconDefinition,
       description?: string,
