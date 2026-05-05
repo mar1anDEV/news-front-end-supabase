@@ -6,8 +6,8 @@ interface Props{
 }
 function FiltersSidebar({children,title, fnAction}:Props) {
   return (
-    <aside className='rounded border border-gray-300 p-2'>
-      <div className='flex flex-col gap-4'>
+    <aside className='rounded border border-gray-300 p-2 h-fit hidden lg:block'>
+      <div className='flex flex-col gap-4 mb-4'>
         {children}
       </div>
     </aside>

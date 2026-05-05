@@ -16,6 +16,12 @@ import { fakeCities } from "../data/fakeDataLocations"
 import ConditionFilter from "../components/ui/filters/ConditionFilter"
 import { fakeDataCondtition } from "../data/fakeDataCondition"
 import BtnClassifieds from "../components/ui/buttons/BtnClassifieds"
+import CardClassiefieds from "../components/ui/cards/CardClassiefieds"
+import { classifiedAds } from "../data/fakeClassifiedsAdsMain"
+import ResponsiveGrid from "../components/layouts/GridLayout"
+
+
+
 function Classifieds() {
 
 
@@ -38,7 +44,7 @@ function Classifieds() {
               path="/post"
               />
               
-            <div className="mx-4 mb-4 grid gap-6 mt-4 grid-cols-1 md:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[300px_minmax(0,1fr)_280px] h-full">
+            <div className="mx-4 mb-4 grid gap-6 mt-4 grid-cols-1 xl:grid-cols-[300px_minmax(0,1fr)_280px] h-full">
                 <FiltersSidebar>
                   <FilterSideBarHeader title="Filters" ariaActionLabel="Reset"/>
 
@@ -59,6 +65,21 @@ function Classifieds() {
                 
                 <ListingPanel>
                   <ListingsToolbar/>
+                  <ResponsiveGrid>
+                    {classifiedAds.map((card)=>(
+                      <CardClassiefieds
+                      location={card.location}
+                      price={card.price}
+                      shortDescription={card.description}
+                      category={card.category}
+                      key={card.id} 
+                      id={card.id} 
+                      imgSrc={card.image} 
+                      name={card.title}
+                      icon={card.icon}
+                        />
+                    ))}
+                  </ResponsiveGrid>
                 </ListingPanel>
                 <FiltersSidebar>
                   <FilterSideBarHeader title="Promoted" ariaActionLabel="View All"/>
