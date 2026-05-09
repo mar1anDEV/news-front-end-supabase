@@ -1,6 +1,8 @@
 import { Link } from "react-router"
 import Layout from "../components/layouts/containerLayouts/Layout"
 import { useState} from "react"
+import NewsLayout from "../components/layouts/newsLayout/NewsLayout"
+import CardNews from "../components/ui/cards/CardNews"
 //import { useLocation } from "react-router"
 import {fakeArticles} from "../data/fakeData"
 import { formatDate } from "../utils/formateDate"
@@ -53,70 +55,12 @@ const [isPillActive, setPillActive] = useState(newsCategories[0].value)
               </ul>
             </nav>
 
-              <div className="cards-container mt-4">
-                <nav className="cards">
-                  <ul className="flex flex-col md:grid grid-cols-2 xl:grid-cols-1 gap-2">
-                    {fakeArticles.map((article)=> (
-                      <li key={article.article_id} className={`hidden shadow xl:block transition duration-300 bg-white w-[98%] rounded mx-auto py-4 px-4 `}>
-                        <Link to={article.link} target="_blank">
-                        <div className="article">
-                          <div className="flex flex-row">
-                            <div className="img-holder w-80 h-40">
-                              <img src={article.image_url} className="h-full w-full object-cover object-center" loading="lazy" alt={article.title}/>
-                            </div>
-
-                              <div className="info-card w-full">
-                                <div className="ml-4 flex flex-col">
-                                  <span className="text-black text-xl font-bold">{article.title}</span>
-                                  <div className="flex flex-row items-center text-gray-500">
-                                    <span className="text-md text-gray-500 mt-4">{`${formatDate(article.pubDate)}`}</span>
-                                    <div className="flex flex-row">
-                                      <FontAwesomeIcon icon={faClock} className="text-gray-400 text-sm ml-4 mt-3" />
-                                      <p className="mt-2 ml-1">{article.pubTime}</p>
-                                    </div>
-                                      
-                                  </div>
-                                </div>
-                              </div>
-
-                          </div>
-                        </div>
-                        
-                        </Link>
-                      </li>
-                    ))}
-
-
-                                          {fakeArticles.map((article) => (
-                                                  <div key={article.article_id} className="block xl:hidden mt-4 mx-2 p-4 bg-white rounded">
-                                                        <div className="flex flex-col gap-4 w-full">
-                                                            <div className="img-holder w-full relative h-40">
-                                                                <img src={article.image_url} className="h-full w-full object-cover object-center overflow-hidden" alt="" />
-                                                                <div className="absolute bottom-0 right-0 bg-blue-900">
-                                                                  <div className="flex flex-row gap-1 px-2 py-2">
-                                                                    <FontAwesomeIcon icon={faClock} className="text-white text-sm mt-1 " />
-                                                                    <p className="text-white">{article.pubTime}</p>
-                                                                  </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="info flex flex-col gap-y-3">
-                                                                <div className="title">
-                                                                    <h3 className="text-blue-900 font-bold text-xl">{article.title}</h3>
-                                                                </div>
-                                                                <div className="flex flex-row items-center text-gray-500">
-                                                                  <span className="text-md text-gray-500 ">{`${formatDate(article.pubDate)}`}</span>
-  
-                                                                </div>
-                                                              
-                                                                    
-                                                            </div>
-                                                        </div>
-                                                  </div>
-                                            ))}
-                  </ul>
-                </nav>
-              </div>
-
+              
+              <NewsLayout>
+                {fakeArticles.map((article)=>(
+                  <CardNews title={article.title} description={article.description} pubTime={article.pubTime} imageURL={article.image_url} key={article.article_id}/>
+                ))}
+              </NewsLayout>
 
           </div>
         </div>
